@@ -22,7 +22,7 @@ export const useSendNft = ({
       await contract.methods
         .safeTransferFrom(account, receiver, tokenId)
         .send({ from: account });
-      toast.success("Success Nft sended!!");
+      toast.success("Success!! NFT sended.");
     } catch (e: any) {
       toast.error(`Unexpected error 🤯 !! ${e.message}`);
     }

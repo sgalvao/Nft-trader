@@ -18,7 +18,7 @@ const Header = () => {
       </S.Wrapper>
       <S.Button isConnected={!!account} onClick={connect}>
         <p>{account ? account : "Connect Wallet"}</p>
-        {account && <BiWallet size={25} />}
+        <BiWallet size={25} />
       </S.Button>
     </S.Container>
   );

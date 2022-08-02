@@ -21,6 +21,7 @@ function NftFaucetApp({ Component, pageProps }: AppProps) {
           pauseOnFocusLoss
           draggable
           pauseOnHover
+          theme="dark"
         />
       </Web3Provider>
     </ApolloContext>

@@ -1,6 +1,7 @@
 import { useWeb3 } from "../../context/web3Context";
 import * as S from "./styles";
 import { FiEdit2 } from "react-icons/fi";
+import Image from "next/image";
 
 export const Profile = ({ data }: any) => {
   const { account } = useWeb3();
@@ -14,7 +15,12 @@ export const Profile = ({ data }: any) => {
           <S.EditIcon onClick={handleEdit}>
             <FiEdit2 size={30} />
           </S.EditIcon>
-          <S.Avatar></S.Avatar>
+          <Image
+            src={"/img/default.png"}
+            width={150}
+            height={150}
+            alt="Github default icon"
+          />
         </S.AvatarContainer>
       </S.BannerContainer>
       <S.Info>

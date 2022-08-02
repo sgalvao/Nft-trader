@@ -66,7 +66,7 @@ const Web3Provider = ({ children }: Props) => {
       setWeb3Api((api) => ({ ...api, isLoading: false }));
     };
     loadProvider();
-  }, []);
+  }, [isConnected]);
 
   const _web3Api = useMemo(() => {
     return {

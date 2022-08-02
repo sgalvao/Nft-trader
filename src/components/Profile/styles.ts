@@ -39,6 +39,7 @@ export const AvatarContainer = styled.div`
   height: 15rem;
   border-radius: 50%;
   position: absolute;
+  overflow: hidden;
   bottom: 1rem;
   transition: 0.2s all ease-in;
   cursor: pointer;
@@ -67,6 +68,8 @@ export const EditIcon = styled.div`
       display: flex;
     }
   }
+
+  z-index: 3;
 `;
 
 export const Avatar = styled.div``;

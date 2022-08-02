@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import { useWeb3 } from "../../context/web3Context";
 import { GET_NFTS } from "../../graphql/queries/walletInfo";
 import { NftProps } from "../../types/api";
+import { ConnectWallet } from "../ConnectWallet";
 import NftCard from "../NftCard";
 import { Profile } from "../Profile";
 import * as S from "./styles";
@@ -20,18 +21,20 @@ const Homepage = () => {
 
   return (
     <S.Container>
-      <Profile />
-      <S.Title>My NFT`s</S.Title>
       {account && !loading ? (
-        <S.Content>
-          {data
-            ? data.erc721ByOwner.map((nft: NftProps, index: any) => (
-                <NftCard key={index} data={nft} />
-              ))
-            : null}
-        </S.Content>
+        <>
+          <Profile />
+          <S.Title>My NFT`s</S.Title>
+          <S.Content>
+            {data
+              ? data.erc721ByOwner.map((nft: NftProps, index: any) => (
+                  <NftCard key={index} data={nft} />
+                ))
+              : null}
+          </S.Content>
+        </>
       ) : (
-        <div>loading....</div>
+        <ConnectWallet />
       )}
     </S.Container>
   );

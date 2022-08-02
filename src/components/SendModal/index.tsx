@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { validateAddress } from "../../utils/addressValidate";
 import Input from "../Input";
 import * as S from "./styles";
@@ -6,7 +7,7 @@ import * as S from "./styles";
 interface ModalProps {
   onClose: () => void;
   isOpen: boolean;
-  onSubmit: (receiver: string) => {};
+  onSubmit: (receiver: string) => Promise<unknown>;
 }
 
 export const SendModal = ({ onClose, isOpen, onSubmit }: ModalProps) => {
@@ -17,7 +18,11 @@ export const SendModal = ({ onClose, isOpen, onSubmit }: ModalProps) => {
     if (!validateAddress(receiver)) {
       return setError("Invalid Address");
     }
-    onSubmit(receiver);
+    toast.promise(onSubmit(receiver), {
+      pending: "pending...",
+      error: "error!!",
+    });
+    onClose();
   };
 
   return (
