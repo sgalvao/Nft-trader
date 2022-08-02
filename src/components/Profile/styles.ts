@@ -72,8 +72,6 @@ export const EditIcon = styled.div`
   z-index: 3;
 `;
 
-export const Avatar = styled.div``;
-
 export const Info = styled.div`
   display: flex;
   margin: 2rem 0;
@@ -93,6 +91,19 @@ export const Username = styled.h1`
   color: white;
   font-size: 3rem;
   margin-bottom: 1rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  ${media.lessThan("large")`
+  max=width: 40rem;
+
+  `}
+
+  ${media.lessThan("medium")`
+  max-width: 30rem;
+    font-size: 2.6rem;
+  `}
 `;
 
 export const EditButton = styled.div`

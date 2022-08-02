@@ -8,12 +8,15 @@ import { useState } from "react";
 export const Profile = () => {
   const { account } = useWeb3();
   const [isOpen, setIsOpen] = useState(false);
+  const [username, setUsername] = useState("Username");
 
   const handleOpen = () => {
     setIsOpen((current) => !current);
   };
 
-  const handleEdit = () => {};
+  const handleEdit = (newUsername: string) => {
+    setUsername(newUsername);
+  };
 
   return (
     <>
@@ -33,7 +36,7 @@ export const Profile = () => {
         </S.BannerContainer>
         <S.Info>
           <S.Wrapper>
-            <S.Username>Username</S.Username>
+            <S.Username>{username}</S.Username>
             <S.Address>{account}</S.Address>
           </S.Wrapper>
           <S.EditButton onClick={handleOpen}>
@@ -44,7 +47,7 @@ export const Profile = () => {
       <EditModal
         onClose={() => setIsOpen(false)}
         isOpen={isOpen}
-        onSubmit={() => handleEdit}
+        onSubmit={handleEdit}
       />
     </>
   );

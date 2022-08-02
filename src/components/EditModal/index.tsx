@@ -5,10 +5,10 @@ import * as S from "./styles";
 interface ModalProps {
   onClose: () => void;
   isOpen: boolean;
-  onSubmit?: () => {};
+  onSubmit: (value: string) => void;
 }
 
-export const EditModal = ({ onClose, isOpen }: ModalProps) => {
+export const EditModal = ({ onClose, isOpen, onSubmit }: ModalProps) => {
   return (
     <>
       <S.Overlay isOpen={isOpen} onClick={onClose} />
@@ -17,7 +17,11 @@ export const EditModal = ({ onClose, isOpen }: ModalProps) => {
         <S.Upload>
           <UploadAvatar />
         </S.Upload>
-        <Input placeholder="username..." label="Change username" />
+        <Input
+          placeholder="username..."
+          label="Change username"
+          onChange={(e) => onSubmit(e.target.value)}
+        />
         <S.Wrapper>
           <S.Button cancel onClick={onClose}>
             Cancel

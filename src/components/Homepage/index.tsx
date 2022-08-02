@@ -1,6 +1,8 @@
 import { useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
 import { useWeb3 } from "../../context/web3Context";
 import { GET_NFTS } from "../../graphql/queries/walletInfo";
+import { useSendNft } from "../../hooks/useSendNft";
 import { NftProps } from "../../types/api";
 import { ConnectWallet } from "../ConnectWallet";
 import NftCard from "../NftCard";

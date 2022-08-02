@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useWeb3 } from "../../context/web3Context";
-import { RequestNftProps } from "../../types/api";
+import { NftProps } from "../../types/api";
 import { BsFillGiftFill } from "react-icons/bs";
 import * as S from "./styles";
 import { useRouter } from "next/router";
@@ -10,7 +10,11 @@ import Web3 from "web3";
 import { useState } from "react";
 import { SendModal } from "../SendModal";
 
-const NftCard = ({ data }: RequestNftProps) => {
+type Props = {
+  data: NftProps;
+};
+
+const NftCard = ({ data }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { account, web3, contractAbi } = useWeb3();
   const { sendNft } = useSendNft({
